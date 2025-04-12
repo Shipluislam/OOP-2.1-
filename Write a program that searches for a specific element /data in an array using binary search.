@@ -1,0 +1,55 @@
+/// Write a program that searches for a specific element / data in an array using binary search.
+#include<iostream>
+using namespace std;
+class binary
+{
+public:
+    int a[100],n,k,item,e,b,m;
+    void input(void);
+    void searching(void);
+};
+void binary :: input(void)
+{
+    cout<<"Give array limit: ";
+    cin>>n;
+    cout<<"Enter the item: ";
+    cin>>item;
+    cout<<"Give the array element: "<<endl;
+    for(k=1;k<=n;k++)
+    {
+        cin>>a[k];
+    }
+}
+void binary::searching(void)
+{
+    b=1;
+    e=n;
+    m=(b+e)/2;
+    while(b<=e&&a[m]!=item)
+    {
+        if(a[m]<item)
+        {
+            b=m+1;
+        }
+        else
+        {
+            e=m-1;
+        }
+        m=(b+e)/2;
+    }
+    if(a[m]==item)
+    {
+        cout<<"Item is found at "<<m;
+    }
+    else
+    {
+        cout<<"Item is not found in the array.";
+    }
+}
+int main()
+{
+    binary b;
+    b.input();
+    b.searching();
+    return 0;
+}
